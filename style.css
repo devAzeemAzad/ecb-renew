@@ -104,11 +104,10 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  width: 80%;
+  width: 100%;
   /* Adjust this value as needed */
-
-  /* Optional: Set a maximum width */
-  max-width: 1200px;
+  max-width: 100%;
+  /* Optional: Set a maximum width */     
   /* Center the middle part */
 }
 
@@ -128,7 +127,12 @@ body {
   width: 100%;
   max-width: 100%;
 }
-
+.latest-news-slider-button{
+  display: none;
+}
+.page-right-slide{
+  display: none;
+}
 /* Slider container */
 .slider-container {
   width: 100%;
@@ -544,7 +548,7 @@ body {
   /* Ensure it takes the full width of the parent */
   max-width: 100%;
   /* Remove any restrictions */
-  padding: 2rem;
+  padding: 1rem;
   border-radius: var(--border-radius);
   gap: 1.5rem;
   background-color: var(--card-bg);
@@ -707,6 +711,7 @@ body {
 .announcements_section_box>ul {
   padding-left: 1.25rem;
   list-style-type: none;
+  width: 90%;
 }
 
 .announcements_section_box>ul>li {
@@ -780,7 +785,6 @@ body {
   .Principal,
   .news-section,
   .announcements_section {
-    max-width: 100%;
     padding: 1rem;
   }
 }
@@ -829,7 +833,6 @@ body {
   .Principal,
   .news-section,
   .announcements_section {
-    max-width: 100%;
     padding: 1rem;
   }
 
@@ -857,15 +860,14 @@ body {
 
   .content-section {
     padding: 1.5rem;
-
   }
 
   .Principal,
-  .news-section,
-  .announcements_section {
-    max-width: 100%;
-
+  .news-section {
+    padding: 1rem;
   }
+
+
 
   .featured-item {
     padding: 0.5rem;
@@ -941,10 +943,8 @@ body {
 
 }
 @media (max-width: 890px){
-  .Principal,
-  .announcements_section {
-    max-width: 90%;
-  }
+
+  
   .Principal {
     flex-direction: column;
     padding: 0.5rem;
@@ -1041,20 +1041,155 @@ body {
 
 @media (max-width: 480px) {
   .page {
-    padding: 1rem;
+    padding: 0;
     gap: 1rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .page_right {
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    right: -54%;
+    margin-top: 0.4rem;
+    gap: 1rem;
+    width: 54%;
+    transition: all 0.2s ease-in-out;
+  }
+  .page-right-slide{
+
+    display: flex;
+    position: absolute;
+    left:-12% ;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    background-color: var(--secondary-bg);;
+    backdrop-filter: var(--glass-effect);
+    z-index: 10;
+    cursor: pointer;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+    > i{
+      font-size: 0.7rem;
+      color: var(--text-color);
+      align-self: center;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .announcements_section{
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .Principal{
+    width: auto;
+    padding: 0.5rem;
+    height: auto;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .principal_image{
+    width: 60%;
+  }
+  .Principal>h4{
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    padding: 0;
+  }
+  .page_head
+  {
+    gap: 0;
+    width: 60%;
+    z-index: 10;
+    position: absolute;
+    padding: 0;
+    left: -53.9%;
+    display: flex;
+    margin-top: 0.4rem;
+    justify-content:flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    transition: all 0.2s ease-in-out;
   }
 
-  .content-section {
-    padding: 1.5rem 1rem;
-  }
+ .news-section{
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 
-  .featured_item_image {
-    height: 10rem;
+  width: 100%;
+ }
+ .latest-news-slider-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--secondary-bg);;
+  backdrop-filter: var(--glass-effect);
+  z-index: 10;
+  cursor: pointer;
+  width: auto;
+  transition: all 0.3s ease-in-out;
+  > i{
+    font-size: 0.7rem;
+    color: var(--text-color);
+    align-self: center;
+    transition: all 0.3s ease-in-out;
   }
-
-  .news-section,
-  .announcements_section {
-    min-width: 100%;
-  }
+ }
+ 
+.page_center{
+  position: absolute;
+  top: 12%;
+  padding: 0 0.8rem;
 }
+ .nav_bar_full{
+  width: 100%;
+  justify-content: space-around;
+  
+ }
+ .navbar-item{
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
+    padding: 0.5rem 0.5rem;
+  }
+  .main-header>h4 {
+    font-size: clamp(1rem, 9vw, 1.25rem);
+  }
+  .featured-item {
+    padding: 0.5rem;
+  }
+
+  .featured-item:nth-child(9),
+  .featured-item:nth-child(10) {
+    grid-column: span 1;
+  }
+
+  .research-section,
+  .faculty-section,
+  .insitute-section,
+  .students-section,
+  .consulting-section,
+  .Innovation_Incubation-section,
+  .Alumni-section,
+  .staff-section,
+  .culture_sport-section,
+  .media-section {
+    grid-template-columns: auto auto;
+    gap: 1.25rem;
+    width: auto;
+    max-width: auto;
+    padding: auto;
+    
+  }
+  .navbar2 {
+     padding: 0.5rem 1rem;
+     gap: 1.5rem;
+   }
+   .featured_item_image {
+     height: 8rem;
+   }
+
+  }

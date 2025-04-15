@@ -262,19 +262,25 @@ let culture_sport1 = document.getElementById("culture_sport1");
 let staff1 = document.getElementById("staff1");
 let Alumni1 = document.getElementById("Alumni1");
 let Innovation_Incubation1 = document.getElementById("Innovation_Incubation1");
+let consulting1 = document.getElementById("consulting1");
 
 let nav_hover = document.getElementsByClassName("nav_hover")[0];
 let navbar2 = document.getElementsByClassName("navbar2");
 
 setInterval(() => {
-  if (media1 && culture_sport1 && staff1 && Innovation_Incubation1 && nav_hover && navbar2[0]) {
+  if (media1 && culture_sport1 && staff1 && Innovation_Incubation1 && consulting1 && nav_hover && navbar2[0]) {
     // Check if all elements are present before proceeding
     if (document.body.offsetWidth > 1650) {
       if (!navbar2[0].contains(culture_sport1)) {
-        navbar2[0].append(Innovation_Incubation1,Alumni1, staff1, culture_sport1, media1);
+        navbar2[0].append(consulting1,Innovation_Incubation1,Alumni1, staff1, culture_sport1, media1);
       }
     } 
     
+    else if (document.body.offsetWidth <= 480) {
+      if (!nav_hover.contains(consulting1)) {
+        nav_hover.append(consulting1, Innovation_Incubation1, Alumni1, staff1, culture_sport1, media1);
+      }
+    } 
     else if (document.body.offsetWidth <= 1100) {
       if (!nav_hover.contains(Innovation_Incubation1)) {
         nav_hover.append(Innovation_Incubation1, Alumni1, staff1, culture_sport1, media1);
@@ -309,6 +315,43 @@ document.addEventListener("DOMContentLoaded", () => {
     upArrow.addEventListener("click", () => {
       upArrow.style.transform = upArrow.style.transform === "rotate(180deg)" ? "rotate(0deg)" : "rotate(180deg)";
       navHover.classList.toggle("visible");
+      
     });
+    // document.addEventListener("click", (e) => {
+    //   if (navHover && !navHover.contains(e.target) && navHover.classList.contains("visible")) {
+    //     navHover.classList.remove("visible");
+    //   }
+    // })
   }
 });
+
+let page_left = document.querySelector(".page_head");
+let news_slider = document.querySelector(".latest-news-slider-button");
+let page = document.querySelector (".page");
+console.log(document.querySelector(".latest-news-slider-button")); // Check if the element exists
+console.log(document.querySelector(".page_head")); // Check if the element exists
+
+if (news_slider && page_left) {
+  news_slider.addEventListener("click", () => {
+    page_left.style.left = page_left.style.left === "-53.9%" ? "0" : "-53.9%";
+  });
+  document.addEventListener("click",(e) => {
+    if(!page_left.contains(e.target)){
+      page_left.style.left = "-53.9%";
+    }
+  })
+}
+
+let page_right = document.querySelector(".page_right");
+let page_right_slide = document.querySelector(".page-right-slide")
+
+if (page_right && page_right_slide) {
+  page_right_slide.addEventListener("click", () => {
+    page_right.style.right = page_right.style.right === "-54%" ? "0" : "-54%";
+  });
+  document.addEventListener("click",(e) => {
+    if(!page_right.contains(e.target)){
+      page_right.style.right = "-54%";
+    }
+  })
+}
