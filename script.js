@@ -313,12 +313,12 @@ setInterval(() => {
     
 
 
-    if (document.body.offsetWidth < 410 && document.body.offsetWidth > 320) {
+    if (document.body.offsetWidth < 413 && document.body.offsetWidth > 320) {
       if (!nav_hover.contains(students1)) {
         nav_hover.append(students1, consulting1, Innovation_Incubation1 ,Alumni1, staff1, culture_sport1, media1);
       }
     } 
-    if (document.body.offsetWidth < 511 && document.body.offsetWidth > 410) {
+    if (document.body.offsetWidth < 511 && document.body.offsetWidth > 413) {
       if (!nav_hover.contains(consulting1)) {
         nav_hover.append(consulting1, Innovation_Incubation1 ,Alumni1, staff1, culture_sport1, media1);
       }
@@ -351,7 +351,7 @@ setInterval(() => {
     } 
 
 
-    if (document.body.offsetWidth < 511 && document.body.offsetWidth > 410) {
+    if (document.body.offsetWidth < 511 && document.body.offsetWidth > 413) {
       if (!navbar2[0].contains(students1)) {
         navbar2[0].append(students1);
       }
