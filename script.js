@@ -263,47 +263,135 @@ let staff1 = document.getElementById("staff1");
 let Alumni1 = document.getElementById("Alumni1");
 let Innovation_Incubation1 = document.getElementById("Innovation_Incubation1");
 let consulting1 = document.getElementById("consulting1");
+let students1 = document.getElementById("students1");
 
 let nav_hover = document.getElementsByClassName("nav_hover")[0];
 let navbar2 = document.getElementsByClassName("navbar2");
 
 setInterval(() => {
-  if (media1 && culture_sport1 && staff1 && Innovation_Incubation1 && consulting1 && nav_hover && navbar2[0]) {
+  if (media1 && culture_sport1 && staff1 && Alumni1 && nav_hover && navbar2[0]) {
     // Check if all elements are present before proceeding
+
+    // If the screen width is greater than 1650px, append Alumni1, staff1, culture_sport1, and media1 to navbar2
     if (document.body.offsetWidth > 1650) {
       if (!navbar2[0].contains(culture_sport1)) {
-        navbar2[0].append(consulting1,Innovation_Incubation1,Alumni1, staff1, culture_sport1, media1);
+        navbar2[0].append(Alumni1, staff1, culture_sport1, media1);
       }
     } 
+    // If the screen width is between 1340px and 1650px, append staff1 to navbar2
+    else if (document.body.offsetWidth <= 1650 && document.body.offsetWidth > 1340) {
+      if (!navbar2[0].contains(staff1)) {
+        navbar2[0].append(staff1);
+      }
+    } 
+    // If the screen width is between 1200px and 1340px, append Alumni1 to navbar2
+    else if (document.body.offsetWidth <= 1340 && document.body.offsetWidth > 1200) {
+      if (!navbar2[0].contains(Alumni1)) {
+        navbar2[0].append(Alumni1);
+      }
+    } 
+
+
+
+   // If the screen width is between 1100px and 1200px, append Alumni1 to nav_hover
+    if (document.body.offsetWidth <= 1200 && document.body.offsetWidth > 1100) {
+      if (!nav_hover.contains(Alumni1)) {
+        nav_hover.append(Alumni1);
+      }
+    } 
+    // If the screen width is between 1200px and 1340px, append staff1 to nav_hover
+    else if (document.body.offsetWidth <= 1340 && document.body.offsetWidth > 1200) {
+      if (!nav_hover.contains(staff1)) {
+        nav_hover.append(staff1);
+      }
+    } 
+    else if (document.body.offsetWidth <= 1650 && document.body.offsetWidth > 1340) {
+      if (!nav_hover.contains(culture_sport1)) {
+        nav_hover.append(culture_sport1, media1);
+      }
+    }
     
-    else if (document.body.offsetWidth <= 480) {
-      if (!nav_hover.contains(consulting1)) {
-        nav_hover.append(consulting1, Innovation_Incubation1, Alumni1, staff1, culture_sport1, media1);
+
+
+    if (document.body.offsetWidth < 410 && document.body.offsetWidth > 320) {
+      if (!nav_hover.contains(students1)) {
+        nav_hover.append(students1, consulting1, Innovation_Incubation1 ,Alumni1, staff1, culture_sport1, media1);
       }
     } 
-    else if (document.body.offsetWidth <= 1100) {
+    if (document.body.offsetWidth < 511 && document.body.offsetWidth > 410) {
+      if (!nav_hover.contains(consulting1)) {
+        nav_hover.append(consulting1, Innovation_Incubation1 ,Alumni1, staff1, culture_sport1, media1);
+      }
+    } 
+    else if (document.body.offsetWidth < 600 && document.body.offsetWidth > 511) {
       if (!nav_hover.contains(Innovation_Incubation1)) {
         nav_hover.append(Innovation_Incubation1, Alumni1, staff1, culture_sport1, media1);
       }
     } 
-    else if (document.body.offsetWidth <= 1200) {
+    else if (document.body.offsetWidth < 773 && document.body.offsetWidth > 600) {
       if (!nav_hover.contains(Alumni1)) {
         nav_hover.append(Alumni1, staff1, culture_sport1, media1);
       }
     } 
-    else if (document.body.offsetWidth <= 1340) {
+    else if (document.body.offsetWidth < 833 && document.body.offsetWidth > 773) {
       if (!nav_hover.contains(staff1)) {
-        nav_hover.append(staff1, culture_sport1, media1);
+        nav_hover.append(staff1 ,culture_sport1, media1);
       }
     } 
-    else if (document.body.offsetWidth <= 1650) {
+    else if (document.body.offsetWidth < 926 && document.body.offsetWidth > 833) {
       if (!nav_hover.contains(culture_sport1)) {
-        nav_hover.append(culture_sport1, media1);
-
+        nav_hover.append(culture_sport1,media1);
       }
-    }
+    } 
+    // If the screen width is between 860px and 960px, append media1 to nav_hover
+    else if (document.body.offsetWidth < 1004 && document.body.offsetWidth > 926) {
+      if (!nav_hover.contains(media1)) {
+        nav_hover.append(media1);
+      }
+    } 
+
+
+    if (document.body.offsetWidth < 511 && document.body.offsetWidth > 410) {
+      if (!navbar2[0].contains(students1)) {
+        navbar2[0].append(students1);
+      }
+    } 
+    else if (document.body.offsetWidth < 600 && document.body.offsetWidth > 511) {
+      if (!navbar2[0].contains(consulting1)) {
+        navbar2[0].append(consulting1);
+      }
+    } 
+    else if (document.body.offsetWidth < 773 && document.body.offsetWidth > 600) {
+      if (!navbar2[0].contains(Innovation_Incubation1)) {
+        navbar2[0].append(Innovation_Incubation1);
+      }
+    } 
+    else if (document.body.offsetWidth < 833 && document.body.offsetWidth > 773) {
+      if (!navbar2[0].contains(Alumni1)) {
+        navbar2[0].append(Alumni1);
+      }
+    } 
+    else if (document.body.offsetWidth < 926 && document.body.offsetWidth > 833) {
+      if (!navbar2[0].contains(staff1)) {
+        navbar2[0].append(staff1);
+      }
+    } 
+    else if (document.body.offsetWidth < 1004 && document.body.offsetWidth > 926) {
+      if (!navbar2[0].contains(culture_sport1)) {
+        navbar2[0].append(culture_sport1);
+      }
+    } 
+    // If the screen width is between 1004px and 1100px, append media1 to navbar2[0]
+    else if (document.body.offsetWidth < 1100 && document.body.offsetWidth > 1004) {
+      if (!navbar2[0].contains(media1)) {
+        navbar2[0].append(Alumni1, staff1, culture_sport1, media1);
+      }
+    } 
   }
 }, 0);
+
+// Update navbar on resize
+
 
 
 
@@ -324,34 +412,42 @@ document.addEventListener("DOMContentLoaded", () => {
     // })
   }
 });
-
+document.addEventListener("DOMContentLoaded", () => {
 let page_left = document.querySelector(".page_head");
 let news_slider = document.querySelector(".latest-news-slider-button");
 let page = document.querySelector (".page");
-console.log(document.querySelector(".latest-news-slider-button")); // Check if the element exists
-console.log(document.querySelector(".page_head")); // Check if the element exists
 
-if (news_slider && page_left) {
-  news_slider.addEventListener("click", () => {
-    page_left.style.left = page_left.style.left === "-53.9%" ? "0" : "-53.9%";
-  });
-  document.addEventListener("click",(e) => {
-    if(!page_left.contains(e.target)){
-      page_left.style.left = "-53.9%";
+  if (news_slider && page_left) {
+    if (document.body.offsetWidth < 1100) {
+      page_left.style.left = "-241px"; // Initially hide the page_left element
+      news_slider.addEventListener("click", () => {
+        page_left.style.left = page_left.style.left === "-241px" ? "0" : "-241px";
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!page_left.contains(e.target)) {
+          page_left.style.left = "-241px";
+        }
+      });
     }
-  })
-}
+  }
+});
+
 
 let page_right = document.querySelector(".page_right");
-let page_right_slide = document.querySelector(".page-right-slide")
-
-if (page_right && page_right_slide) {
-  page_right_slide.addEventListener("click", () => {
-    page_right.style.right = page_right.style.right === "-54%" ? "0" : "-54%";
-  });
-  document.addEventListener("click",(e) => {
-    if(!page_right.contains(e.target)){
-      page_right.style.right = "-54%";
-    }
-  })
+let page_right_slide = document.querySelector(".page-right-slide");
+let principal = document.querySelector(".Principal");
+let announcements_section = document.querySelector(".announcements_section");
+if (page_right_slide && page_right && principal && announcements_section) {
+  if (document.body.offsetWidth < 1100) {
+    page_right.style.right = "-260px"; // Initially hide the page_right element
+    page_right_slide.addEventListener("click", () => {
+      page_right.style.right = page_right.style.right === "-260px" ? "0" : "-260px";
+    });
+    document.addEventListener("click", (e) => {
+      if (!page_right.contains(e.target) && !principal.contains(e.target) && !announcements_section.contains(e.target)) {
+        page_right.style.right = "-260px";
+      }
+    });
+  }
 }
