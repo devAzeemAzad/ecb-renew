@@ -451,3 +451,21 @@ if (page_right_slide && page_right && principal && announcements_section) {
     });
   }
 }
+
+
+
+let depart_down = document.querySelector(".container3 > .depar-text > .fa-chevron-down");
+let depar_text = document.querySelector(".container3 > .depar-text");
+let foot_depar_column = document.querySelector(".container3 > .foot_depar_colum");
+
+if (document.body.offsetWidth <= 768) {
+  foot_depar_column.style.display = "none"; // Initially hide the foot_depar_column element
+  foot_depar_column.style.height = "0px"; // Set height to 0px for smooth transition
+  if (depar_text && depart_down) {
+    depar_text.addEventListener("click", () => {
+      depart_down.style.transform = depart_down.style.transform === "rotate(180deg)" ? "rotate(0deg)" : "rotate(180deg)";
+      foot_depar_column.style.display = foot_depar_column.style.display === "none" ? "block" : "none";
+      foot_depar_column.style.height = foot_depar_column.style.height === "0px" ? "auto" : "0px";
+    });
+  }
+}
