@@ -469,3 +469,38 @@ if (document.body.offsetWidth <= 768) {
     });
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  var nav_submenudropdown = document.querySelectorAll(".container2 .nav-submenudropdown");
+  nav_submenudropdown.forEach(element  => {
+  console.log( element.childNodes);
+    const active= element.childNodes[3];
+    const rotate= element.childNodes[1].childNodes[1];
+    element.addEventListener("mouseenter", () => {
+      active.style.display="block";
+      rotate.style.transform  = "rotate(180deg)";
+      rotate.style.transition= "transform 0.3s ease-out";
+    });   
+    element.addEventListener("mouseleave", () => {
+      active.style.display="none";
+      rotate.style.transform  = "rotate(0deg)";
+    });   
+    // element.addEventListener("click", () => {
+    //   active.style.display="none";
+    //   rotate.style.transform  = "rotate(0deg)";
+    // });   
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  var nav_innersub_menu = document.querySelectorAll(".container2 .nav-submenudropdown .nav-inner-menu .nav-innersub-menu");
+  nav_innersub_menu.forEach(element  => {
+    const active= element.childNodes[3];
+    element.addEventListener("mouseenter", () => {
+      active.style.display="flex";
+    });   
+    element.addEventListener("mouseleave", () => {
+      active.style.display="none";
+    });   
+  });
+});
+

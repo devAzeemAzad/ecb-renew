@@ -76,10 +76,7 @@
 /* Body Styling - Sophisticated Gradient Background */
 body {
   width: calc(100vw - scrollbar-width);
-  background: linear-gradient(135deg,
-  var(--gradient-start) 0%,
-  var(--gradient-middle) 50%,
-  var(--gradient-end) 100%);
+  background: linear-gradient(135deg, #152d4d, #1e4b7d);
 }
 
 /* Page layout */
