@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         this.startAutoSlide()
       );
 
-      // Keyboard navigation
+      // Keyboard footerigation
       this.container.addEventListener("keydown", (e) => this.handleKeyDown(e));
 
       // Make slider focusable
@@ -471,8 +471,87 @@ if (document.body.offsetWidth <= 768) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  var nav_submenudropdown = document.querySelectorAll(".container2 .nav-submenudropdown");
-  nav_submenudropdown.forEach(element  => {
+  document.querySelectorAll(".nav-container3 .nav-menu").forEach(element => {
+    element.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent event propagation
+
+      // Hide all other menus
+      document.querySelectorAll(".nav-container3 .nav-menu").forEach(otherElement => {
+        if (otherElement !== element) {
+          otherElement.childNodes[3].style.display = "none";
+          if (otherElement.childNodes[1]?.childNodes[1]) {
+            otherElement.childNodes[1].childNodes[1].style.transform = "rotate(0deg)";
+          }
+        }
+      });
+
+      // Toggle the clicked menu
+      const isActive = element.childNodes[3].style.display === "block";
+      element.childNodes[3].style.display = isActive ? "none" : "block";
+      if (element.childNodes[1]?.childNodes[1]) {
+        const isRotate = element.childNodes[1].childNodes[1].style.transform === "rotate(180deg)";
+        element.childNodes[1].childNodes[1].style.transform = isRotate ? "rotate(0deg)" : "rotate(180deg)";
+        element.childNodes[1].childNodes[1].style.transition = "transform 0.3s ease-out"; // Add smooth transition
+      }
+    });
+  });
+
+  // Close all menus when clicking outside
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".nav-container3 .nav-menu").forEach(element => {
+      element.childNodes[3].style.display = "none";
+      if (element.childNodes[1]?.childNodes[1]) {
+        element.childNodes[1].childNodes[1].style.transform = "rotate(0deg)";
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  var nav_innersub_menu = document.querySelectorAll(".nav-container3 .nav-menu .nav-inner-menu .nav-innersub-menu");
+  nav_innersub_menu.forEach(element => {
+    const active = element.childNodes[3];
+    const rotate = element.childNodes[1].childNodes[1];
+
+    // Add transition for smooth toggle
+    active.style.transition = "all 0.3s ease-out";
+    rotate.style.transition = "transform 0.3s ease-out";
+
+    element.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent event propagation
+
+      // Hide all other menus
+      nav_innersub_menu.forEach(otherElement => {
+        if (otherElement !== element) {
+          const otherActive = otherElement.childNodes[3];
+          const otherRotate = otherElement.childNodes[1].childNodes[1];
+          otherActive.style.display = "none";
+          otherRotate.style.transform = "rotate(0deg)";
+        }
+      });
+
+      // Toggle the clicked menu
+      const isActive = active.style.display === "flex";
+      active.style.display = isActive ? "none" : "flex";
+      rotate.style.transform = isActive ? "rotate(0deg)" : "rotate(90deg)";
+    });
+  });
+
+  // Close all menus when clicking outside
+  document.addEventListener("click", () => {
+    nav_innersub_menu.forEach(element => {
+      const active = element.childNodes[3];
+      const rotate = element.childNodes[1].childNodes[1];
+      active.style.display = "none";
+      rotate.style.transform = "rotate(0deg)";
+    });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  var footer_menu = document.querySelectorAll(".container2 .footer-menu");
+  footer_menu.forEach(element  => {
   console.log( element.childNodes);
     const active= element.childNodes[3];
     const rotate= element.childNodes[1].childNodes[1];
@@ -492,8 +571,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 document.addEventListener("DOMContentLoaded", () => {
-  var nav_innersub_menu = document.querySelectorAll(".container2 .nav-submenudropdown .nav-inner-menu .nav-innersub-menu");
-  nav_innersub_menu.forEach(element  => {
+  var footer_innersub_menu = document.querySelectorAll(".container2 .footer-menu .footer-inner-menu .footer-innersub-menu");
+  footer_innersub_menu.forEach(element  => {
     const active= element.childNodes[3];
     element.addEventListener("mouseenter", () => {
       active.style.display="flex";
@@ -504,3 +583,70 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function startTime() {
+  const today = new Date();
+  const hr = today.getHours() % 12 || 12;
+  const min = String(today.getMinutes()).padStart(2, "0");
+  const sec = String(today.getSeconds()).padStart(2, "0");
+  const ap = today.getHours() < 12 ? "AM" : "PM";
+
+  document.getElementById("clock").innerHTML = `${hr}:${min}:${sec} <span>${ap}</span>`;
+
+  const options = { weekday: "short", day: "numeric", month: "long", year: "numeric" };
+  document.getElementById("date").innerHTML = today.toLocaleDateString(undefined, options);
+
+  setTimeout(startTime, 500);
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  var nav_con3_slider = document.querySelector(".nav-con3-slider");
+  var ri_menu_line = document.querySelector(".ri-menu-line");
+  ri_menu_line.addEventListener("click" ,()=>{
+    nav_con3_slider.style.left = nav_con3_slider.style.left === "-235px" ? "0px" : "-235px";
+  })
+  document.addEventListener("click", (e) => {
+    if (!ri_menu_line.contains(e.target) && !nav_con3_slider.contains(e.target)) {
+      nav_con3_slider.style.left = "-235px";
+    }
+  });
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ri_more_2_line = document.querySelector(".ri-more-2-line");
+  const nav_container1_left = document.querySelector(".nav-container1-left");
+
+  if (ri_more_2_line && nav_container1_left) {
+    ri_more_2_line.addEventListener("click", () => {
+      nav_container1_left.style.left = nav_container1_left.style.left === "-511px" ? "-18px" : "-511px";
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+// Select the image element
+const image = document.querySelector('.nav-container2-left img');
+
+// Function to change the image based on viewport width
+function handleViewportChange(e) {
+  if (e.matches) {
+    // Viewport is 700px or less
+    image.src = 'banner2.shortpng.png'; // Smaller image
+    
+    } else {
+    // Viewport is more than 700px
+    image.src = 'banner2.png'; // Larger image
+  }
+}
+
+// Create a media query list
+const mediaQuery = window.matchMedia('(max-width: 700px)');
+
+// Initial check
+handleViewportChange(mediaQuery);
+
+// Listen for changes in viewport width
+mediaQuery.addEventListener('change', handleViewportChange);
+
+})
