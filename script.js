@@ -619,7 +619,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (ri_more_2_line && nav_container1_left) {
     ri_more_2_line.addEventListener("click", () => {
-      nav_container1_left.style.left = nav_container1_left.style.left === "-511px" ? "-18px" : "-511px";
+      nav_container1_left.style.left = nav_container1_left.style.left === "-516px" ? "-18px" : "-516px";
     });
   }
 });
@@ -633,7 +633,7 @@ function handleViewportChange(e) {
   if (e.matches) {
     // Viewport is 700px or less
     image.src = 'banner2.shortpng.png'; // Smaller image
-    
+
     } else {
     // Viewport is more than 700px
     image.src = 'banner2.png'; // Larger image
