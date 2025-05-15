@@ -112,7 +112,7 @@ footer {
 .footer-inner-menu {
     position: absolute;
     width: auto;
-    max-width: 270px;
+    max-width: 200px;
     min-width: 200px;
     height: auto;
     display: none;
@@ -161,7 +161,7 @@ footer {
 .footer-innersub-menu-first {
     position: absolute;
     width: auto;
-    max-width: 270px;
+    max-width: 200px;
     min-width: 190px;
     display: none;
     flex-direction: column;
@@ -454,7 +454,9 @@ footer {
 }
 
 
-
+@media (max-width:1180px) {
+    
+}
 @media (max-width: 768px) {
 
     .container1,

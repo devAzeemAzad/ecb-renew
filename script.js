@@ -405,11 +405,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navHover.classList.toggle("visible");
       
     });
-    // document.addEventListener("click", (e) => {
-    //   if (navHover && !navHover.contains(e.target) && navHover.classList.contains("visible")) {
-    //     navHover.classList.remove("visible");
-    //   }
-    // })
+  
   }
 });
 document.addEventListener("DOMContentLoaded", () => {
@@ -620,6 +616,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (ri_more_2_line && nav_container1_left) {
     ri_more_2_line.addEventListener("click", () => {
       nav_container1_left.style.left = nav_container1_left.style.left === "-516px" ? "-18px" : "-516px";
+    });
+    document.addEventListener("click", (e) => {
+      if (!ri_more_2_line.contains(e.target) && !nav_container1_left.contains(e.target)) {
+        nav_container1_left.style.left = "-516px";
+      }
     });
   }
 });
